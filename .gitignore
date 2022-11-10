@@ -294,3 +294,13 @@ terraform.rc
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform,visualstudiocode,python,flask
+
+# Infracost cache
+.infracost-cache
+.infracost
+
+# Terraform
+.terraform*
+
+# Terragrunt
+.terragrunt*
