@@ -12,7 +12,7 @@ resource "cloudflare_zone" "cdrl_ut_org" {
   zone   = "cdrl-ut.org"
 }
 
-resource "cloudflare_zone" "pic_urt_org" {
+resource "cloudflare_zone" "pic_ut_org" {
   paused = false
   plan   = "free"
   type   = "full"
