@@ -11,6 +11,8 @@ jobs:
     name: "Terraform Apply"
     if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     permissions:
       id-token: write
       contents: read
@@ -46,9 +48,6 @@ jobs:
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color
         continue-on-error: true
-
-      - name: Terraform Plan Status
-        run: exit 1
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
