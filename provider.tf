@@ -12,6 +12,11 @@ terraform {
       version = "3.25.0"
     }
 
+    random = {
+      source  = "hashicorp/random"
+      version = "~>3.4.3"
+    }
+
   }
 }
 
@@ -19,6 +24,14 @@ provider "aws" {
   # Configuration options
   alias  = "primary"
   region = "us-east-2"
+
+  default_tags {
+    tags = {
+      environment = "k3s"
+      managed_by  = "terraform"
+      owner       = "ASI"
+    }
+  }
 }
 
 provider "aws" {
