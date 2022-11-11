@@ -9,7 +9,7 @@ module "k3s_control" {
 
   count = var.control_count
 
-  name = "k3s-control-${count.index}"
+  name = "k3s-control-${format("%02d", count.index + 1)}"
 
   ami                    = data.aws_ami.amazon_linux2.id
   instance_type          = var.instance_type
@@ -38,7 +38,7 @@ module "k3s_worker" {
 
   count = var.worker_count
 
-  name = "k3s-worker-${count.index}"
+  name = "k3s-worker-${format("%02d", count.index + 1)}"
 
   ami                    = data.aws_ami.amazon_linux2.id
   instance_type          = var.instance_type
