@@ -4,5 +4,5 @@ resource "cloudflare_record" "github_domain_verification_pic_ut_org" {
   ttl     = 300
   type    = "TXT"
   value   = "78c6ba5172"
-  zone_id = "2cfe8542b7815694d63204da1484263a"
+  zone_id = data.cloudflare_zone.pic_ut_org.id
 }

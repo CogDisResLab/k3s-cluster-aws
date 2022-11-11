@@ -27,3 +27,9 @@ variable "worker_count" {
   description = "The number of worker nodes"
   default     = 4
 }
+
+variable "cloudflare_account_id" {
+  default     = "REDACTED"
+  description = "The Cloudflare account ID to use"
+  type        = string
+}

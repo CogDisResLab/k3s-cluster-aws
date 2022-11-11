@@ -5,7 +5,8 @@ resource "cloudflare_record" "control_nodes" {
   proxied = false
   ttl     = 300
   type    = "A"
-  value   = module.k3s_control.public_ip[count.index]
+  value   = module.k3s_control[count.index].public_ip
+  zone_id = data.cloudflare_zone.cdrlprojects_org.id
 }
 
 resource "cloudflare_record" "worker_nodes" {
@@ -15,5 +16,6 @@ resource "cloudflare_record" "worker_nodes" {
   proxied = false
   ttl     = 300
   type    = "A"
-  value   = module.k3s_worker.public_ip[count.index]
+  value   = module.k3s_worker[count.index].public_ip
+  zone_id = data.cloudflare_zone.cdrlprojects_org.id
 }
