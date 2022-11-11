@@ -7,7 +7,7 @@ module "k3s_control" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  count = 2
+  count = var.control_count
 
   name = "k3s-control-${count.index}"
 
@@ -36,7 +36,7 @@ module "k3s_worker" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  count = 4
+  count = var.worker_count
 
   name = "k3s-worker-${count.index}"
 

@@ -15,3 +15,15 @@ variable "public_key" {
   description = "The public key to use for SSH access"
   type        = string
 }
+
+variable "control_count" {
+  type        = number
+  description = "The number of control nodes"
+  default     = 2
+}
+
+variable "worker_count" {
+  type        = number
+  description = "The number of worker nodes"
+  default     = 4
+}
