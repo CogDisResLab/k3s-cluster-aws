@@ -1,3 +1,4 @@
+# tflint-ignore: terraform_unused_declarations
 data "aws_ami" "amazon_linux2" {
   owners      = ["amazon"]
   most_recent = true
