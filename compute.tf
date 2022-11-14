@@ -11,7 +11,7 @@ module "k3s_control" {
 
   name = "k3s-control-${format("%02d", count.index + 1)}"
 
-  ami                    = data.aws_ami.amazon_linux2.id
+  ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = aws_key_pair.k3s.key_name
   monitoring             = true
@@ -40,7 +40,7 @@ module "k3s_worker" {
 
   name = "k3s-worker-${format("%02d", count.index + 1)}"
 
-  ami                    = data.aws_ami.amazon_linux2.id
+  ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = aws_key_pair.k3s.key_name
   monitoring             = true
