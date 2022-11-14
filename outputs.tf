@@ -7,5 +7,6 @@ output "worker_ips" {
 }
 
 output "cluster_token" {
-  value = random_string.cluster_token.result
+  sensitive = true
+  value     = random_string.cluster_token.result
 }
